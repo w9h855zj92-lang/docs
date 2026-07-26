@@ -1,0 +1,47 @@
+---
+title: "Weld Prep Calculator: Bevel Angle, Root Gap, and Land"
+sidebarTitle: "Weld Prep"
+description: "Calculate weld prep dimensions including bevel angle, root gap, and land for butt weld joints. Select pipe schedule and diameter for precise results."
+---
+
+The Weld Prep calculator gives you the bevel angle, root gap, and land dimensions for a butt weld joint based on your pipe size and schedule. These values ensure proper joint fit-up for ASME-compliant welds.
+
+## When to use this calculator
+
+Use Weld Prep when preparing pipe ends for butt welding, especially when code-compliant weld profiles are required. Correct bevel geometry is critical for full-penetration welds — too steep a bevel wastes filler metal and time, while too shallow a bevel risks inadequate fusion at the root. Enter your pipe size and schedule and PipeFitter returns the dimensions you need to set up your grinder, machine, or beveling tool.
+
+## Inputs
+
+<ParamField body="Pipe Size (NPS)" type="select" required>
+  The nominal pipe size you are preparing for welding. Used to look up the outside diameter and determine the joint geometry.
+</ParamField>
+
+<ParamField body="Schedule" type="select" required>
+  The pipe schedule: **Std**, **XH**, **XXH**, **40**, **80**, **160**, or other standard schedules. The wall thickness — which varies by schedule — determines the root gap and land requirements.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Bevel Angle" type="string">
+  The angle to grind or machine on the pipe end. For standard butt welds per ASME B31.3, this is typically **37.5° per side**, producing a 75° included angle (V-groove). PipeFitter will note if your schedule requires a different profile.
+</ResponseField>
+
+<ResponseField name="Root Gap" type="string">
+  The gap to maintain between the two pipe ends at the root of the weld during fit-up. Measured in inches or millimetres. A consistent root gap ensures complete root penetration.
+</ResponseField>
+
+<ResponseField name="Land (Root Face)" type="string">
+  The flat portion at the tip of the bevel before the weld groove begins. Also called the root face. A properly sized land prevents burn-through during root pass welding.
+</ResponseField>
+
+<ResponseField name="Wall Thickness" type="string">
+  The pipe wall thickness looked up from ASME B36.10M for your selected size and schedule, displayed for reference.
+</ResponseField>
+
+<Note>
+  Weld prep dimensions should always be confirmed against the applicable **Welding Procedure Specification (WPS)** for the job. Code-qualified WPS documents may specify different bevel angles, root gaps, or land dimensions than the ASME defaults — the WPS always takes precedence.
+</Note>
+
+<Tip>
+  You can look up wall thickness independently using the **Pipe Dimensions** reference table without running a full weld prep calculation. This is useful when you just need to confirm pipe schedule dimensions at the jobsite.
+</Tip>

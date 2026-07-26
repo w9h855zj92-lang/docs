@@ -1,0 +1,87 @@
+---
+title: "Rolling Offset Calculator: 3D Travel and Cut Length"
+sidebarTitle: "Rolling Offset"
+description: "Calculate true offset, travel, run, and cut length for a 3D rolling pipe offset. Enter rise, horizontal offset, and fitting angle for instant results."
+---
+
+The Rolling Offset calculator handles 3D pipe routing where the pipe must change both vertical and horizontal direction simultaneously. Enter the rise, horizontal offset, and fitting angle and PipeFitter returns the true (diagonal) offset, travel, run, and cut length.
+
+## When to use this calculator
+
+Use Rolling Offset when a pipe must navigate a corner that moves in two planes at the same time, such as routing around a structural beam while also changing elevation. A rolling offset cannot be solved with a simple 2D offset calculation — the true offset is the hypotenuse of the rise and the horizontal offset, and that combined dimension drives all downstream values.
+
+## Inputs
+
+<ParamField body="Rise" type="number" required>
+  The vertical distance between the two parallel pipe centrelines — how much the pipe needs to go up or down.
+</ParamField>
+
+<ParamField body="Horizontal Offset" type="number" required>
+  The lateral (side-to-side) distance between the two parallel pipe centrelines — how much the pipe needs to move left or right.
+</ParamField>
+
+<ParamField body="Fitting Angle" type="select" required>
+  The elbow angle used for both fittings: **11.25°**, **22.5°**, **30°**, **45°**, **60°**, or **Custom**. Selecting Custom allows you to enter any angle in degrees.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="True Offset" type="string">
+  The diagonal distance combining the rise and horizontal offset — calculated as √(rise² + offset²). This is the effective offset the fittings must span in three-dimensional space.
+</ResponseField>
+
+<ResponseField name="Travel" type="string">
+  The centre-to-centre pipe length between the two fittings. This is the angled pipe piece that bridges the rolling offset.
+</ResponseField>
+
+<ResponseField name="Run" type="string">
+  The distance the pipe advances along the main run axis while making the rolling offset.
+</ResponseField>
+
+<ResponseField name="Cut Length" type="string">
+  The pipe length to cut, calculated by subtracting the fitting take-out at both ends from the travel. This is the dimension you mark on the pipe before cutting.
+</ResponseField>
+
+## Formula reference
+
+PipeFitter solves a rolling offset in two steps — first finding the true offset, then treating it as a simple offset problem:
+
+| Value | Formula |
+|---|---|
+| True Offset | √(Rise² + Horizontal Offset²) |
+| Travel | True Offset ÷ sin(angle) |
+| Run | True Offset ÷ tan(angle) |
+| Cut Length | Travel − (2 × fitting take-out) |
+
+The key insight is that once you have the true offset, the rolling offset reduces to the same math as a simple offset — using the true offset in place of the rise.
+
+## Example
+
+The following example walks through a rolling offset with a 6" rise, 8" horizontal offset, and 45° fittings.
+
+<Steps>
+  <Step title="Enter the rise">
+    Set **Rise** to `6"`.
+  </Step>
+  <Step title="Enter the horizontal offset">
+    Set **Horizontal Offset** to `8"`.
+  </Step>
+  <Step title="Select the fitting angle">
+    Set **Fitting Angle** to `45°`.
+  </Step>
+  <Step title="Read the results">
+    PipeFitter returns:
+
+    | Output | Value |
+    |---|---|
+    | True Offset | 10" |
+    | Travel | 14‑3/16" |
+    | Run | 10" |
+
+    The true offset (10") is the 3-4-5 hypotenuse of the 6" rise and 8" horizontal offset. Travel is then solved exactly as a simple 45° offset with a 10" rise.
+  </Step>
+</Steps>
+
+<Note>
+  The live isometric 3D diagram updates as you type, showing the geometry from all angles. Rotate the diagram to verify your rise and horizontal offset are oriented correctly for your actual installation.
+</Note>

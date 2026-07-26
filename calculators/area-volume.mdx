@@ -1,0 +1,55 @@
+---
+title: "Pipe Area and Volume Calculator: Capacity and Weight"
+sidebarTitle: "Area & Volume"
+description: "Calculate pipe cross-section area, internal volume, gallons per foot, and weight per foot for any pipe size and schedule."
+---
+
+The Area and Volume calculator gives you key dimensional data for any pipe size and schedule — including cross-section area, internal volume per foot, gallons per foot, and pipe weight. Use it for line sizing, hydro test planning, and fluid capacity estimates.
+
+## Inputs
+
+<ParamField body="Pipe Size (NPS)" type="select" required>
+  The nominal pipe size. PipeFitter uses the ASME B36.10M outside diameter for the selected NPS to derive all dimensional values.
+</ParamField>
+
+<ParamField body="Schedule" type="select" required>
+  The pipe schedule: **Std**, **XH**, **XXH**, **40**, **80**, **160**, or other standard schedules. The schedule determines wall thickness, which sets the internal diameter and affects all volume and weight outputs.
+</ParamField>
+
+<ParamField body="Length" type="number">
+  Optional. If you enter a length, PipeFitter calculates total internal volume and total pipe weight for that length in addition to the per-foot values. Leave blank to see per-foot results only.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Internal Diameter" type="string">
+  The pipe's internal diameter (ID), in inches or millimetres. Calculated as OD minus twice the wall thickness.
+</ResponseField>
+
+<ResponseField name="Cross-Section Area" type="string">
+  The internal cross-section area of the pipe bore, in square inches (in²) or square millimetres (mm²). Use this value for flow velocity calculations and line-sizing checks.
+</ResponseField>
+
+<ResponseField name="Volume per Foot" type="string">
+  The internal volume per linear foot of pipe, in cubic inches per foot (in³/ft) or litres per metre (L/m).
+</ResponseField>
+
+<ResponseField name="Gallons per Foot" type="string">
+  The US liquid gallons of fluid contained per linear foot of pipe. This is particularly useful when estimating hydro test water volumes — multiply by your total pipe length to get the fill quantity.
+</ResponseField>
+
+<ResponseField name="Weight per Foot" type="string">
+  The empty pipe weight per linear foot, based on ASME B36.10M data for the selected size and schedule. Does not include fluid weight.
+</ResponseField>
+
+<ResponseField name="Total Volume" type="string">
+  The total internal volume for the length you entered. Displayed only when a **Length** value is provided.
+</ResponseField>
+
+<ResponseField name="Total Weight" type="string">
+  The total empty pipe weight for the length you entered. Displayed only when a **Length** value is provided. Add fluid weight separately for loaded-line calculations.
+</ResponseField>
+
+<Tip>
+  For a quick weight-per-foot lookup without entering all inputs, use the **Pipe Weights** reference table. It lists weight per foot for every standard NPS and schedule combination in a single scrollable table — faster when you just need one number at the jobsite.
+</Tip>

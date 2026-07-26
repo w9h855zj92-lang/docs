@@ -1,0 +1,62 @@
+---
+title: "Pipe Dimensions Reference: NPS, OD, Wall, and Schedule"
+sidebarTitle: "Pipe Dimensions"
+description: "Look up outside diameter, wall thickness, and inside diameter for any NPS from 1/8\" to 42\". Data sourced from ASME B36.10M."
+---
+
+The Pipe Dimensions table gives you the outside diameter (OD), wall thickness, and inside diameter (ID) for carbon steel pipe in every standard schedule. All data is sourced from ASME B36.10M and covers NPS 1/8" through 42". Whether you're confirming bore size for a flow calculation or selecting the right fitting, this table is your starting point.
+
+## How to use the table
+
+Enter a nominal pipe size (NPS) in the search field or scroll to find it. Select a schedule to see all dimensional data for that size and schedule combination. Results update immediately and display both imperial and metric values side by side.
+
+## Available data
+
+<ResponseField name="NPS" type="string">
+  Nominal pipe size designation. NPS is a dimensionless reference number — it does **not** equal the outside diameter. For NPS 1/8" through NPS 12", the OD is larger than the nominal size.
+</ResponseField>
+
+<ResponseField name="OD" type="number">
+  Outside diameter in inches and millimetres. The OD is fixed for a given NPS regardless of schedule — only the wall thickness changes between schedules.
+</ResponseField>
+
+<ResponseField name="Wall Thickness" type="number">
+  Wall thickness in inches and millimetres. Heavier schedules have thicker walls, which reduces the inside diameter and increases the pressure rating.
+</ResponseField>
+
+<ResponseField name="ID" type="number">
+  Inside diameter, calculated as OD minus 2× wall thickness. Use this value for flow calculations, bore clearance checks, and internal coating allowances.
+</ResponseField>
+
+<ResponseField name="Schedule" type="string">
+  Standard schedule designations available in the table: **10, 20, 30, Std (40), 60, 80, 100, 120, 140, 160, XH, XXH**. Not every schedule is manufactured for every NPS — the table only shows combinations that exist per B36.10M.
+</ResponseField>
+
+## Schedules explained
+
+Schedule numbers describe the wall thickness of a pipe relative to its OD and design pressure. Here's a quick guide to the most common designations:
+
+- **Std / Schedule 40** — Standard wall. The most common schedule for general utility and process piping. For NPS 1/8" through NPS 10", Std and Schedule 40 are identical.
+- **XH / Schedule 80** — Extra heavy wall. Provides higher pressure ratings and is commonly used in steam, chemical, and high-pressure utility service.
+- **XXH / Schedule 160** — Double extra heavy wall. Used in high-pressure applications such as hydraulic lines and high-pressure steam headers. Schedule 160 and XXH are only the same for select sizes — check the table for the specific NPS you're working with.
+
+<Note>
+  For NPS ≥ 14", the outside diameter equals the nominal size in inches. For example, NPS 16" pipe has an OD of exactly 16.000". This makes it straightforward to calculate wall thickness and ID directly from the schedule.
+</Note>
+
+## ASME standard
+
+<Note>
+  All dimensional data in this table follows **ASME B36.10M (2018 edition)**, *Welded and Seamless Wrought Steel Pipe*. Always confirm dimensions against your project specification and applicable material standard before fabrication or procurement. Project specs may call out special wall thicknesses or tolerances not covered by the standard schedules.
+</Note>
+
+## Related tools
+
+<CardGroup cols={2}>
+  <Card title="Pipe Weights" icon="weight-scale" href="/reference/pipe-weights">
+    Look up weight per foot for any NPS and schedule combination. Use it to estimate spool weights, hanger loads, and hydro test weights.
+  </Card>
+  <Card title="Weld Prep Calculator" icon="calculator" href="/calculators/weld-prep">
+    Calculate bevel angles, land dimensions, and gap requirements for groove welds based on pipe schedule and WPS requirements.
+  </Card>
+</CardGroup>

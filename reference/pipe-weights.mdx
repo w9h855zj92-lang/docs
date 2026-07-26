@@ -1,0 +1,46 @@
+---
+title: "Pipe Weights Reference: Weight per Foot by Size and Schedule"
+sidebarTitle: "Pipe Weights"
+description: "Look up pipe weight per foot for all carbon steel schedules from NPS 1/8\" to 42\". Includes plain end, threaded, and coupled weights per ASME B36.10M."
+---
+
+The Pipe Weights table lists the weight per foot of carbon steel pipe for every standard NPS and schedule combination. Use it to estimate spool weights, hanger loads, and hydro test weights. Whether you're sizing a pipe support or filling out a material take-off, having the right weight per foot makes every downstream calculation faster and more accurate. Data is sourced from ASME B36.10M.
+
+## How to use the table
+
+Select or search for a pipe size and schedule using the controls at the top of the table. The table returns weight per foot in both **lb/ft** and **kg/m** so you can work in whichever unit system your project requires. Results update as soon as you make a selection.
+
+## Available data
+
+<ResponseField name="Weight per Foot (Plain End)" type="number">
+  Pipe weight in lb/ft and kg/m for bare pipe with plain (un-threaded) ends. Use plain end weights for all welded piping calculations, including spool fabrication, hanger loads, and seismic analysis.
+</ResponseField>
+
+<ResponseField name="Weight per Foot (Threaded & Coupled)" type="number">
+  Pipe weight in lb/ft and kg/m including the weight of one standard coupling per foot of pipe. This value is used for screwed (threaded) piping systems where couplings are part of the installed assembly.
+</ResponseField>
+
+## Weight types explained
+
+Choosing the right weight type matters when your loads need to be accurate:
+
+- **Plain end weights** are used for welded piping. The pipe is cut square and joined by welding, so no coupling weight is included. This is the correct value for the vast majority of process, utility, and structural piping.
+- **Threaded and coupled weights** are used for screwed piping systems — typically smaller sizes (NPS 2" and under) in low-pressure utility service, instrument connections, or older plant piping. The coupling weight is distributed across one foot of pipe length.
+
+## Estimating total weight
+
+To estimate the total weight of a pipe spool, multiply the weight per foot by the total pipe length:
+
+```
+Total Weight = Weight per Foot × Total Length
+```
+
+For water-filled pipe during hydrostatic testing, you need to add the weight of water inside the pipe. Use the **Area & Volume calculator** to find the internal volume, then multiply by the density of water (62.4 lb/ft³ or 8.34 lb/gal for fresh water).
+
+<Tip>
+  The Area & Volume calculator can calculate both the total pipe weight and the water-filled weight for a given spool length in a single step. Enter the NPS, schedule, and spool length — the calculator returns dry weight, water weight, and combined hydro test weight together.
+</Tip>
+
+<Note>
+  This table covers **carbon steel pipe per ASME B36.10M only**. If your project specifies stainless steel, alloy pipe, or another material, the weights will differ due to variations in material density. Check your project specification for the correct material and refer to the applicable standard — for example, ASME B36.19M for stainless steel pipe — before using weight values in structural or hanger load calculations.
+</Note>

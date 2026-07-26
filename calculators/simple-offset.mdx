@@ -1,0 +1,75 @@
+---
+title: "Simple Offset Calculator: Travel, Run, and Cut Length"
+sidebarTitle: "Simple Offset"
+description: "Calculate travel, run, and cut length for a 2D pipe offset. Enter rise and fitting angle to get instant results with a live 2D diagram."
+---
+
+The Simple Offset calculator finds the travel, run, and cut length for a standard 2D pipe offset. Enter your rise and fitting angle and PipeFitter instantly returns all three values along with a live diagram showing the geometry.
+
+## When to use this calculator
+
+Use Simple Offset when you need to route a pipe around an obstacle in a single plane, using two fittings of the same angle. This is the most common offset scenario in the field — both fittings sit in the same plane, and the pipe between them travels at an angle equal to the fitting angle.
+
+## Inputs
+
+<ParamField body="Rise" type="number" required>
+  The perpendicular distance between the two parallel pipe runs. Enter in feet-inches-fractions (imperial) or millimetres (metric).
+</ParamField>
+
+<ParamField body="Fitting Angle" type="select" required>
+  The elbow angle used for both fittings: **11.25°**, **22.5°**, **30°**, **45°**, **60°**, or **Custom**. Selecting Custom allows you to enter any angle in degrees.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Travel" type="string">
+  The length of pipe between the two fittings, measured centre-to-centre. This is the diagonal pipe piece that spans the offset.
+</ResponseField>
+
+<ResponseField name="Run" type="string">
+  The horizontal distance gained by the offset — how far the pipe advances along the run axis while making the offset.
+</ResponseField>
+
+<ResponseField name="Cut Length" type="string">
+  The piece of pipe to cut, accounting for fitting take-out at both ends. This is the dimension you mark and cut in the shop or field.
+</ResponseField>
+
+## Formula reference
+
+PipeFitter uses the following trigonometric relationships to solve a simple offset:
+
+| Value | Formula |
+|---|---|
+| Travel | Rise ÷ sin(angle) |
+| Run | Rise ÷ tan(angle) |
+| Cut Length | Travel − (2 × fitting take-out) |
+
+The **fitting take-out** is the centre-to-end dimension of the elbow, looked up automatically from the ASME fitting tables based on your pipe size and schedule. You can review these values in the Pipe Dimensions reference table.
+
+## Example
+
+The following example walks through a 45° simple offset with a 12-inch rise.
+
+<Steps>
+  <Step title="Enter the rise">
+    Set **Rise** to `12"`.
+  </Step>
+  <Step title="Select the fitting angle">
+    Set **Fitting Angle** to `45°`.
+  </Step>
+  <Step title="Read the results">
+    PipeFitter returns:
+
+    | Output | Value |
+    |---|---|
+    | Travel | 16‑31/32" |
+    | Run | 12" |
+    | Multiplier (45°) | 1.4142 |
+
+    The multiplier is the factor applied to the rise to get the travel. For a 45° offset, travel = rise × 1.4142.
+  </Step>
+</Steps>
+
+<Tip>
+  Check the **Multiplier Tables** reference for a full list of quick mental-math multipliers for every standard fitting angle. Multipliers let you calculate travel in your head on the job without a calculator.
+</Tip>

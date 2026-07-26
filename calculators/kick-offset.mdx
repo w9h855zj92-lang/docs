@@ -1,0 +1,60 @@
+---
+title: "Kick Offset Calculator for Parallel Pipe Runs"
+sidebarTitle: "Kick Offset"
+description: "Calculate individual cut lengths for 2–4 equal-spread kicks in a parallel pipe run. Choose your spread, fitting angle, and number of kicks."
+---
+
+The Kick Offset calculator determines cut lengths for multi-kick pipe routing — when you need to spread a parallel pipe run using 2, 3, or 4 kicks (pairs of fittings). Enter the spread, fitting angle, and number of kicks and PipeFitter returns the cut length for each kick.
+
+## When to use this calculator
+
+Use Kick Offset when laying out a parallel pipe bank that needs to fan out or converge, especially in rack or header systems. Multiple kicks divide the total spread evenly across several fittings, which reduces the angle of each individual offset and keeps the run more compact. This is common in utility racks, equipment headers, and anywhere pipes must transition from one spacing to another without large, abrupt offsets.
+
+## Inputs
+
+<ParamField body="Spread" type="number" required>
+  The total perpendicular distance between the original pipe centreline and the final pipe centreline after all kicks are complete.
+</ParamField>
+
+<ParamField body="Fitting Angle" type="select" required>
+  The elbow angle used for each kick. All kicks use the same fitting angle. Options: **11.25°**, **22.5°**, **30°**, **45°**, **60°**, or **Custom**.
+</ParamField>
+
+<ParamField body="Number of Kicks" type="select" required>
+  The number of kick pairs: **2**, **3**, or **4** kicks. Each kick consists of two fittings — one angling out and one returning to parallel.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Cut Length per Kick" type="string">
+  The pipe length for each individual kick section, measured cut-to-cut. All kicks are equal when the spread is divided evenly.
+</ResponseField>
+
+<ResponseField name="Total Run" type="string">
+  The total horizontal distance consumed by all kicks combined. Use this value when planning pipe rack layout and determining where the spread transition starts and ends.
+</ResponseField>
+
+## Example
+
+The following example walks through a 3-kick layout with an 18" spread and 45° fittings.
+
+<Steps>
+  <Step title="Enter the spread">
+    Set **Spread** to `18"`.
+  </Step>
+  <Step title="Select the fitting angle">
+    Set **Fitting Angle** to `45°`.
+  </Step>
+  <Step title="Set the number of kicks">
+    Set **Number of Kicks** to `3`.
+  </Step>
+  <Step title="Read the results">
+    PipeFitter divides the spread evenly across 3 kicks — each kick spans 6" of rise (18" ÷ 3). At 45°, each kick piece has a travel of approximately 8-31/32" before fitting take-out.
+
+    Review the **Cut Length per Kick** and **Total Run** values in the output panel, then mark and cut your pieces accordingly.
+  </Step>
+</Steps>
+
+<Tip>
+  When spacing multiple parallel lines, use consistent kick lengths across the entire bank to maintain equal spacing between pipes. If each line uses the same spread, fitting angle, and number of kicks, all cut lengths will be identical — simplifying your pre-fabrication layout significantly.
+</Tip>

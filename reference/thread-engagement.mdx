@@ -1,0 +1,53 @@
+---
+title: "NPT Thread Engagement Reference: Pipe Size to Engagement Length"
+sidebarTitle: "Thread Engagement"
+description: "Look up NPT thread engagement lengths for all standard pipe sizes. Data sourced from ASME B1.20.1 for code-compliant threaded joints."
+---
+
+The Thread Engagement table gives you the minimum and full thread engagement lengths for NPT (National Pipe Tapered) threads by pipe size. Use these values when cutting and inspecting threaded pipe joints to ensure code-compliant connections per ASME B1.20.1. Getting engagement right is critical — too little thread and the joint may leak under pressure; too much and you risk cracking the fitting or distorting the seat.
+
+## How to use the table
+
+Find the pipe size (NPS) in the table to see the number of threads per inch, the effective thread length, and the hand-tight engagement for that size. The table covers NPS 1/8" through NPS 6", which includes all standard NPT sizes covered by ASME B1.20.1.
+
+## Available data
+
+<ResponseField name="NPS" type="string">
+  Nominal pipe size for the threaded connection. NPT threads are tapered at 1° 47' (1/16" per inch of thread length) for both internal and external threads.
+</ResponseField>
+
+<ResponseField name="Threads per Inch (TPI)" type="number">
+  The NPT thread pitch for the given pipe size. TPI decreases as pipe size increases — larger pipe uses coarser threads. The TPI is stamped on most thread dies and taps for reference.
+</ResponseField>
+
+<ResponseField name="Effective Thread Length" type="number">
+  The minimum thread engagement length required to produce a pressure-tight joint, measured from the end of the pipe. Joints that fall short of this length may not seal reliably under pressure or thermal cycling.
+</ResponseField>
+
+<ResponseField name="Hand-Tight Engagement" type="number">
+  How far the fitting advances onto the pipe by hand before requiring a wrench. This is a useful field inspection reference — if a fitting bottoms out by hand with very little resistance, the threads may be damaged or undersized.
+</ResponseField>
+
+<ResponseField name="Wrench-Tight Engagement" type="number">
+  The additional turns required beyond hand-tight to achieve a proper seal. Wrench-tight engagement compresses the thread flanks and creates the mechanical seal in an NPT joint.
+</ResponseField>
+
+## Thread count guidance
+
+The table below provides a quick reference for the most common NPT pipe sizes used in field installations. Turn counts are approximate and assume clean, properly cut threads with an appropriate thread sealant applied.
+
+| NPS    | TPI  | Hand-Tight (turns) | Wrench-Tight (turns) |
+|--------|------|--------------------|----------------------|
+| 1/2"   | 14   | 3–4                | 2–3                  |
+| 3/4"   | 14   | 3–4                | 2–3                  |
+| 1"     | 11.5 | 3–4                | 2–3                  |
+| 1-1/2" | 11.5 | 3–4                | 2–3                  |
+| 2"     | 11.5 | 3–4                | 2–3                  |
+
+<Warning>
+  Over-tightening NPT threads can crack fittings — particularly in small sizes and in plastic, cast iron, or brass fittings where the material has limited tolerance for hoop stress. Apply wrench turns gradually and stop when you reach the target engagement. If a joint leaks after the correct number of wrench turns, back it out, clean the threads, and re-apply sealant before reassembling. Do not continue tightening past the recommended engagement to stop a leak.
+</Warning>
+
+<Note>
+  For high-pressure or high-temperature systems, always confirm thread engagement requirements against the applicable Welding Procedure Specification (WPS), the owner's project specification, or your company's pipe installation procedure. Some codes and specifications impose additional requirements beyond the minimums in ASME B1.20.1, including restrictions on thread sealant type and the use of PTFE tape on certain services.
+</Note>

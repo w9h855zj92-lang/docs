@@ -1,0 +1,69 @@
+---
+title: "Miter Cut Calculator: Custom Angles from Standard Elbows"
+sidebarTitle: "Miter Cut"
+description: "Generate any elbow angle by mitering a standard 90° elbow into 2–5 pieces. Outputs cut angle per piece and mark distances for layout."
+---
+
+The Miter Cut calculator lets you create a custom-angle elbow from a standard 90° elbow by cutting it into 2 to 5 equal pieces. Enter your desired angle, pipe diameter, and number of cuts — PipeFitter returns the cut angle for each piece and the mark distances for layout.
+
+## When to use this calculator
+
+Use Miter Cut when you need a non-standard angle — for example, 72° — and fabricating from a standard 90° elbow is more practical than ordering a special fitting. This approach is common in structural and industrial piping where lead times are long or where exact angles must match field conditions. The calculator distributes the desired angle evenly across all pieces and gives you the precise saw setting and layout marks for each cut.
+
+## Inputs
+
+<ParamField body="Desired Angle" type="number" required>
+  The total turn angle you need, between 0° and 90°. PipeFitter divides this angle evenly across the number of pieces you specify.
+</ParamField>
+
+<ParamField body="Pipe Diameter (NPS)" type="select" required>
+  The nominal pipe size of the elbow being cut. Used to calculate the mark distances along the pipe for each cut line.
+</ParamField>
+
+<ParamField body="Number of Pieces" type="select" required>
+  The number of pieces to cut the 90° elbow into: **2**, **3**, **4**, or **5**. More pieces produce a smoother curve but require more cuts.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Cut Angle per Piece" type="string">
+  The angle to set your saw or cutting guide for each individual cut. All cuts use the same angle when the desired angle divides evenly across the pieces.
+</ResponseField>
+
+<ResponseField name="Mark Distances" type="string">
+  The layout marks measured along the pipe for each cut. Transfer these distances to the elbow using a square and scribe line before cutting.
+</ResponseField>
+
+<ResponseField name="Isometric View" type="diagram">
+  PipeFitter displays a diagram with each piece labeled, showing the resulting elbow profile and confirming that the assembled pieces achieve your desired angle.
+</ResponseField>
+
+## Example
+
+The following example produces a 72° elbow from a 4-inch NPS standard 90° elbow, cut into 3 pieces.
+
+<Steps>
+  <Step title="Enter the desired angle">
+    Set **Desired Angle** to `72°`.
+  </Step>
+  <Step title="Select the pipe diameter">
+    Set **Pipe Diameter (NPS)** to `4"`.
+  </Step>
+  <Step title="Set the number of pieces">
+    Set **Number of Pieces** to `3`.
+  </Step>
+  <Step title="Read the results">
+    PipeFitter returns:
+
+    | Output | Value |
+    |---|---|
+    | Cut Angle per Piece | 24° |
+    | Mark Distances | Displayed on diagram |
+
+    Set your saw to **24°** and transfer the mark distances to the elbow before making each cut. Assemble the three pieces to achieve the 72° turn.
+  </Step>
+</Steps>
+
+<Note>
+  More pieces produce a smoother elbow but require more precise cutting — any error in saw angle compounds across each piece. For most field fabrications, **3 pieces** strikes the right balance between a smooth profile and practical cutting accuracy. Reserve 4- or 5-piece miter cuts for shop fabrication with a saw that locks to exact angles.
+</Note>

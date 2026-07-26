@@ -1,0 +1,82 @@
+{
+  "projectType": "saas",
+  "projectName": "PipeFitter",
+  "projectDescription": "A web-based calculator and reference tool for pipefitters, covering pipe offsets, cut lengths, rolling offsets, spool calculations, and ASME reference data.",
+  "theme": "almond",
+  "primaryColor": "#ef7025",
+  "lightColor": "#eec9bc",
+  "darkColor": "#4fa1ab",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "using-the-app"
+            ]
+          },
+          {
+            "group": "Calculators",
+            "pages": [
+              "calculators/simple-offset",
+              "calculators/rolling-offset",
+              "calculators/kick-offset",
+              "calculators/miter-cut",
+              "calculators/spool-cut",
+              "calculators/weld-prep",
+              "calculators/area-volume"
+            ]
+          },
+          {
+            "group": "Reference Tables",
+            "pages": [
+              "reference/pipe-dimensions",
+              "reference/pipe-weights",
+              "reference/thread-engagement",
+              "reference/multiplier-tables",
+              "reference/fraction-reference"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "faq",
+              "troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Simple and rolling offset calculators with live diagrams",
+    "Kick offset for parallel pipe runs (2–4 kicks)",
+    "Miter cut calculator (2–5 pieces)",
+    "Spool cut calculations (CTC, CTE, ETE)",
+    "Weld prep calculator with bevel angle and root gap",
+    "Area and volume calculator for pipe capacity",
+    "ASME-verified pipe dimension reference tables",
+    "Pipe weight and thread engagement lookup tables",
+    "Offset multiplier tables for common fitting angles",
+    "Fraction-to-decimal conversion reference",
+    "Works in imperial fractions and metric units"
+  ],
+  "publicApiSurface": [
+    "Simple Offset Calculator — rise + angle → travel, run, cut length",
+    "Rolling Offset Calculator — rise + horizontal offset + angle → true offset, travel, run, cut length",
+    "Kick Offset Calculator — spread, angle, number of kicks → individual cut lengths",
+    "Miter Cut Calculator — angle + pipe diameter + pieces → cut angle per piece, mark distances",
+    "Spool Cut Calculator — CTC / CTE / ETE dimensions → cut lengths",
+    "Weld Prep Calculator — pipe schedule + diameter → root gap, bevel angle, land",
+    "Area / Volume Calculator — pipe size + schedule → cross-section area, capacity, weight",
+    "Pipe Dimensions Table — NPS lookup → OD, wall thickness, schedule data",
+    "Pipe Weights Table — schedule + size → weight per foot",
+    "Thread Engagement Table — pipe size → NPT engagement lengths",
+    "Multiplier Tables — fitting angle → offset multiplier",
+    "Fraction Reference — fraction → decimal equivalent"
+  ]
+}

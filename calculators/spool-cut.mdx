@@ -1,0 +1,71 @@
+---
+title: "Spool Cut Calculator: CTC, CTE, and ETE Dimensions"
+sidebarTitle: "Spool Cut"
+description: "Calculate cut lengths for spool pieces using centre-to-centre (CTC), cut-to-end (CTE), or end-to-end (ETE) measurement methods."
+---
+
+The Spool Cut calculator converts your field measurements into the cut lengths you need to fabricate a spool piece. PipeFitter supports three measurement methods — Centre-to-Centre (CTC), Cut-to-End (CTE), and End-to-End (ETE) — and accounts for fitting take-out automatically.
+
+## Measurement methods
+
+Choose the measurement method that matches how you took your field dimensions:
+
+| Method | Description |
+|---|---|
+| **CTC** (Centre-to-Centre) | Distance measured between the centres of two fittings. This is the most common field measurement method and the most precise when fittings are already installed. |
+| **CTE** (Cut-to-End) | Distance from a pipe cut end to a fitting centre. Use this method when one end of the spool is a plain pipe end and the other terminates at a fitting. |
+| **ETE** (End-to-End) | Distance between two pipe cut ends. This is the simplest measurement and requires no fitting references — useful when the fittings will be added after the spool is cut. |
+
+## Inputs
+
+<ParamField body="Measurement Type" type="select" required>
+  Select your field measurement method: **CTC**, **CTE**, or **ETE**. The take-out calculation adjusts automatically based on your selection.
+</ParamField>
+
+<ParamField body="Measured Dimension" type="number" required>
+  The distance you measured in the field, in feet-inches-fractions (imperial) or millimetres (metric). Enter exactly what your tape measure reads.
+</ParamField>
+
+<ParamField body="Fitting Type" type="select" required>
+  The type of fitting at each end of the spool: **90° elbow**, **45° elbow**, **tee**, **cap**, or **flange**. The fitting type determines the take-out value applied at each end.
+</ParamField>
+
+<ParamField body="Pipe Size (NPS)" type="select" required>
+  The nominal pipe size of the spool. Used to look up standard take-out values from ASME fitting tables.
+</ParamField>
+
+## Outputs
+
+<ResponseField name="Cut Length" type="string">
+  The pipe length to cut. This is the dimension you mark on the pipe — the measured dimension minus the applicable take-out at each end.
+</ResponseField>
+
+<ResponseField name="Take-Out (each end)" type="string">
+  The fitting take-out value applied at each end of the spool. Displayed for both ends so you can verify the values match your actual fittings before cutting.
+</ResponseField>
+
+## Example
+
+The following example calculates the cut length for a spool measured centre-to-centre at 24", with 2-inch NPS 90° long-radius elbows on both ends.
+
+<Steps>
+  <Step title="Select the measurement type">
+    Set **Measurement Type** to `CTC`.
+  </Step>
+  <Step title="Enter the measured dimension">
+    Set **Measured Dimension** to `24"`.
+  </Step>
+  <Step title="Select the fitting type">
+    Set **Fitting Type** to `90° LR Elbow` on both ends.
+  </Step>
+  <Step title="Select the pipe size">
+    Set **Pipe Size (NPS)** to `2"`.
+  </Step>
+  <Step title="Read the results">
+    PipeFitter looks up the take-out for a 2-inch NPS 90° long-radius elbow and subtracts it from both ends of your 24" CTC measurement. The **Cut Length** output shows the exact pipe dimension to mark and cut.
+  </Step>
+</Steps>
+
+<Tip>
+  Double-check fitting take-out values against the **Pipe Dimensions** reference table before cutting, especially when working with non-standard or imported fittings whose dimensions may differ from ASME standards. A take-out error on both ends can add up quickly on a long spool.
+</Tip>

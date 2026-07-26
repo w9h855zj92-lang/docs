@@ -1,0 +1,56 @@
+---
+title: "Offset Multiplier Tables for Common Fitting Angles"
+sidebarTitle: "Multiplier Tables"
+description: "Quick-reference offset multipliers for 11.25°, 22.5°, 30°, 45°, and 60° fittings. Use these to calculate travel and run from rise without a calculator."
+---
+
+Offset multiplier tables let you calculate travel and run from rise using simple multiplication — no calculator needed. PipeFitter includes multipliers for the five most common pipe fitting angles used in the field. Whether you're rolling an offset in your head or double-checking a spool drawing on the job site, these numbers let you work fast and accurately.
+
+## How multipliers work
+
+Every pipe offset forms a right triangle where the rise is the perpendicular distance between the two parallel pipe runs, the travel is the diagonal pipe length between the two fittings, and the run is the horizontal distance covered along the direction of flow.
+
+The multipliers are derived directly from trigonometry:
+
+- **Travel Multiplier × Rise = Travel** — derived from `1 / sin(angle)`
+- **Run Multiplier × Rise = Run** — derived from `1 / tan(angle)`
+
+Once you know the rise, a single multiplication gives you the other two sides. The multipliers are fixed for each fitting angle, so you only need to memorise the ones you use most often.
+
+## Multiplier reference table
+
+| Fitting Angle | Travel Multiplier | Run Multiplier |
+|---------------|-------------------|----------------|
+| 11.25°        | 5.125             | 5.027          |
+| 22.5°         | 2.613             | 2.414          |
+| 30°           | 2.000             | 1.732          |
+| 45°           | 1.414             | 1.000          |
+| 60°           | 1.155             | 0.577          |
+
+## Example — 45° offset
+
+A 45° offset is the most common in the field and the easiest to calculate.
+
+- **Rise:** 10"
+- **Travel** = 10 × 1.414 = **14.14"** (approx. 14-1/8")
+- **Run** = 10 × 1.000 = **10"**
+
+Because the run multiplier for a 45° offset is exactly 1.000, the run always equals the rise. That symmetry is one reason the 45° offset is so widely used — it's simple to lay out and verify.
+
+## Example — 22.5° offset
+
+A 22.5° offset is common when you need a shallow angle to clear an obstruction over a longer horizontal distance.
+
+- **Rise:** 8"
+- **Travel** = 8 × 2.613 = **20.9"** (approx. 20-7/8")
+- **Run** = 8 × 2.414 = **19.3"** (approx. 19-5/16")
+
+Notice that the travel and run are close in value for shallow angles — the offset covers a lot of horizontal distance relative to the rise, which is useful when headroom or obstruction clearance is tight along the run.
+
+<Tip>
+  The 45° travel multiplier of **1.414** is the easiest to remember — think of it as roughly **1-7/16 inches of travel for every inch of rise**. If you can only memorise one multiplier, make it this one. You can also derive it quickly on site: 1.414 ≈ √2, the diagonal of a square.
+</Tip>
+
+<Note>
+  Multiplier calculations give you the **pipe travel length** between fitting centres. For fabrication, you also need to subtract the **fitting take-out** (also called the centre-to-face dimension) for each fitting. Use the **Simple Offset calculator** for precise results that include fitting take-out automatically, or refer to your fitting manufacturer's dimensional data for centre-to-face values.
+</Note>
