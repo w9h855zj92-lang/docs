@@ -1,7 +1,7 @@
 ---
 title: "Spool Cut Calculator: CTC, CTE, and ETE Dimensions"
 sidebarTitle: "Spool Cut"
-description: "Calculate cut lengths for spool pieces using centre-to-centre (CTC), cut-to-end (CTE), or end-to-end (ETE) measurement methods."
+description: "Calculate cut lengths for spool pieces from CTC, CTE, or ETE field measurements. Fitting take-out is applied automatically based on fitting type."
 ---
 
 The Spool Cut calculator converts your field measurements into the cut lengths you need to fabricate a spool piece. PipeFitter supports three measurement methods — Centre-to-Centre (CTC), Cut-to-End (CTE), and End-to-End (ETE) — and accounts for fitting take-out automatically.
@@ -62,7 +62,14 @@ The following example calculates the cut length for a spool measured centre-to-c
     Set **Pipe Size (NPS)** to `2"`.
   </Step>
   <Step title="Read the results">
-    PipeFitter looks up the take-out for a 2-inch NPS 90° long-radius elbow and subtracts it from both ends of your 24" CTC measurement. The **Cut Length** output shows the exact pipe dimension to mark and cut.
+    For a 2-inch NPS 90° long-radius elbow, the ASME take-out is **3"**. PipeFitter subtracts the take-out at both ends:
+
+    | Output | Value |
+    |---|---|
+    | Take-Out (each end) | 3" |
+    | Cut Length | 18" (24" − 3" − 3") |
+
+    Mark the pipe at **18"** and cut. The finished spool, once the elbows are welded or threaded on, will span the full 24" centre-to-centre.
   </Step>
 </Steps>
 

@@ -1,10 +1,10 @@
 ---
 title: "Pipe Area and Volume Calculator: Capacity and Weight"
 sidebarTitle: "Area & Volume"
-description: "Calculate pipe cross-section area, internal volume, gallons per foot, and weight per foot for any pipe size and schedule."
+description: "Calculate pipe internal diameter, cross-section area, volume per foot, gallons per foot, and weight per foot for any NPS pipe size and schedule."
 ---
 
-The Area and Volume calculator gives you key dimensional data for any pipe size and schedule — including cross-section area, internal volume per foot, gallons per foot, and pipe weight. Use it for line sizing, hydro test planning, and fluid capacity estimates.
+The Area and Volume calculator gives you key dimensional data for any pipe size and schedule — including internal diameter, cross-section area, internal volume per foot, gallons per foot, and pipe weight. Use it for line sizing, hydro test planning, and fluid capacity estimates.
 
 ## Inputs
 
@@ -22,8 +22,8 @@ The Area and Volume calculator gives you key dimensional data for any pipe size 
 
 ## Outputs
 
-<ResponseField name="Internal Diameter" type="string">
-  The pipe's internal diameter (ID), in inches or millimetres. Calculated as OD minus twice the wall thickness.
+<ResponseField name="Internal Diameter (ID)" type="string">
+  The pipe's internal diameter, in inches or millimetres. Calculated as OD minus twice the wall thickness.
 </ResponseField>
 
 <ResponseField name="Cross-Section Area" type="string">
@@ -49,6 +49,37 @@ The Area and Volume calculator gives you key dimensional data for any pipe size 
 <ResponseField name="Total Weight" type="string">
   The total empty pipe weight for the length you entered. Displayed only when a **Length** value is provided. Add fluid weight separately for loaded-line calculations.
 </ResponseField>
+
+## Example
+
+The following example shows all outputs for a 4-inch NPS Schedule 40 pipe, with a 50-foot length entered to also display total volume and weight.
+
+<Steps>
+  <Step title="Select the pipe size">
+    Set **Pipe Size (NPS)** to `4"`.
+  </Step>
+  <Step title="Select the schedule">
+    Set **Schedule** to `40`.
+  </Step>
+  <Step title="Enter a length">
+    Set **Length** to `50 ft`.
+  </Step>
+  <Step title="Read the results">
+    PipeFitter looks up the ASME B36.10M dimensions (OD = 4.500", wall = 0.237") and returns:
+
+    | Output | Value |
+    |---|---|
+    | Internal Diameter (ID) | 4.026" |
+    | Cross-Section Area | 12.73 in² |
+    | Volume per Foot | 147.8 in³/ft |
+    | Gallons per Foot | 0.639 gal/ft |
+    | Weight per Foot | 10.79 lb/ft |
+    | Total Volume (50 ft) | 7,390 in³ (32.0 gal) |
+    | Total Weight (50 ft) | 539.5 lb |
+
+    For hydro test planning, the 50-foot run holds approximately **32 gallons** of water. The empty pipe weighs **539.5 lb** — add the fluid weight of 32 gallons (approximately 267 lb) for a loaded weight of roughly **807 lb**.
+  </Step>
+</Steps>
 
 <Tip>
   For a quick weight-per-foot lookup without entering all inputs, use the **Pipe Weights** reference table. It lists weight per foot for every standard NPS and schedule combination in a single scrollable table — faster when you just need one number at the jobsite.

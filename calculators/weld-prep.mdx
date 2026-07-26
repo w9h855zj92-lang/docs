@@ -4,7 +4,7 @@ sidebarTitle: "Weld Prep"
 description: "Calculate weld prep dimensions including bevel angle, root gap, and land for butt weld joints. Select pipe schedule and diameter for precise results."
 ---
 
-The Weld Prep calculator gives you the bevel angle, root gap, and land dimensions for a butt weld joint based on your pipe size and schedule. These values ensure proper joint fit-up for ASME-compliant welds.
+The Weld Prep calculator gives you the bevel angle, root gap, land, and wall thickness for a butt weld joint based on your pipe size and schedule. These values ensure proper joint fit-up for ASME-compliant welds.
 
 ## When to use this calculator
 
@@ -37,6 +37,31 @@ Use Weld Prep when preparing pipe ends for butt welding, especially when code-co
 <ResponseField name="Wall Thickness" type="string">
   The pipe wall thickness looked up from ASME B36.10M for your selected size and schedule, displayed for reference.
 </ResponseField>
+
+## Example
+
+The following example shows weld prep dimensions for a 4-inch NPS Schedule 40 pipe.
+
+<Steps>
+  <Step title="Select the pipe size">
+    Set **Pipe Size (NPS)** to `4"`.
+  </Step>
+  <Step title="Select the schedule">
+    Set **Schedule** to `40`.
+  </Step>
+  <Step title="Read the results">
+    PipeFitter looks up the ASME B36.10M wall thickness and returns:
+
+    | Output | Value |
+    |---|---|
+    | Wall Thickness | 0.237" |
+    | Bevel Angle | 37.5° per side |
+    | Root Gap | 1/8" (0.125") |
+    | Land (Root Face) | 1/16" (0.0625") |
+
+    Set your beveling tool or grinder to **37.5°**, leave a **1/16" land** at the pipe end tip, and maintain a **1/8" root gap** when fitting up the joint. These dimensions meet standard ASME B31.3 butt weld requirements for this pipe size and schedule.
+  </Step>
+</Steps>
 
 <Note>
   Weld prep dimensions should always be confirmed against the applicable **Welding Procedure Specification (WPS)** for the job. Code-qualified WPS documents may specify different bevel angles, root gaps, or land dimensions than the ASME defaults — the WPS always takes precedence.

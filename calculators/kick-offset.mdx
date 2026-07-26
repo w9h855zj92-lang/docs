@@ -1,10 +1,10 @@
 ---
-title: "Kick Offset Calculator for Parallel Pipe Runs"
+title: "Kick Offset Calculator: Multi-Kick Spread and Cut Length"
 sidebarTitle: "Kick Offset"
 description: "Calculate individual cut lengths for 2–4 equal-spread kicks in a parallel pipe run. Choose your spread, fitting angle, and number of kicks."
 ---
 
-The Kick Offset calculator determines cut lengths for multi-kick pipe routing — when you need to spread a parallel pipe run using 2, 3, or 4 kicks (pairs of fittings). Enter the spread, fitting angle, and number of kicks and PipeFitter returns the cut length for each kick.
+The Kick Offset calculator determines cut lengths for multi-kick pipe routing — when you need to spread a parallel pipe run using 2, 3, or 4 kicks (pairs of fittings). Enter the spread, fitting angle, and number of kicks and PipeFitter returns the cut length for each kick and the total run.
 
 ## When to use this calculator
 
@@ -49,9 +49,14 @@ The following example walks through a 3-kick layout with an 18" spread and 45° 
     Set **Number of Kicks** to `3`.
   </Step>
   <Step title="Read the results">
-    PipeFitter divides the spread evenly across 3 kicks — each kick spans 6" of rise (18" ÷ 3). At 45°, each kick piece has a travel of approximately 8-31/32" before fitting take-out.
+    PipeFitter divides the 18" spread evenly across 3 kicks — each kick spans 6" of rise (18" ÷ 3). At 45°, each kick's travel is 6" ÷ sin(45°) ≈ 8‑31/32". PipeFitter returns:
 
-    Review the **Cut Length per Kick** and **Total Run** values in the output panel, then mark and cut your pieces accordingly.
+    | Output | Value |
+    |---|---|
+    | Cut Length per Kick | 8‑31/32" (before fitting take-out) |
+    | Total Run | 18" (3 kicks × 6" run each at 45°) |
+
+    Mark and cut three pieces to the **Cut Length per Kick** dimension, then install them with matching 45° fittings to complete the spread transition.
   </Step>
 </Steps>
 

@@ -1,7 +1,7 @@
 ---
 title: "Offset Multiplier Tables for Common Fitting Angles"
 sidebarTitle: "Multiplier Tables"
-description: "Quick-reference offset multipliers for 11.25°, 22.5°, 30°, 45°, and 60° fittings. Use these to calculate travel and run from rise without a calculator."
+description: "Quick-reference offset multipliers for 11.25°, 22.5°, 30°, 45°, and 60° fittings. Calculate travel and run from rise using simple multiplication."
 ---
 
 Offset multiplier tables let you calculate travel and run from rise using simple multiplication — no calculator needed. PipeFitter includes multipliers for the five most common pipe fitting angles used in the field. Whether you're rolling an offset in your head or double-checking a spool drawing on the job site, these numbers let you work fast and accurately.
@@ -16,6 +16,20 @@ The multipliers are derived directly from trigonometry:
 - **Run Multiplier × Rise = Run** — derived from `1 / tan(angle)`
 
 Once you know the rise, a single multiplication gives you the other two sides. The multipliers are fixed for each fitting angle, so you only need to memorise the ones you use most often.
+
+## Available data
+
+<ResponseField name="Fitting Angle" type="number">
+  The angle of the fitting in degrees. PipeFitter includes multipliers for **11.25°, 22.5°, 30°, 45°, and 60°** — the five standard fitting angles used in commercial and industrial pipe fabrication.
+</ResponseField>
+
+<ResponseField name="Travel Multiplier" type="number">
+  Multiply this value by the rise to get the diagonal pipe length (travel) between fitting centres. Derived from `1 / sin(angle)`. For a 45° offset the travel multiplier is **1.414** (≈ √2).
+</ResponseField>
+
+<ResponseField name="Run Multiplier" type="number">
+  Multiply this value by the rise to get the horizontal distance covered along the direction of flow (run). Derived from `1 / tan(angle)`. For a 45° offset the run multiplier is exactly **1.000**, meaning run always equals rise.
+</ResponseField>
 
 ## Multiplier reference table
 
